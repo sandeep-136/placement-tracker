@@ -109,3 +109,18 @@ test('seed is idempotent with onlyIfEmpty', async () => {
   assert.equal(await seed(fresh), 0);
   await fresh.end();
 });
+
+test('create defaults applied_date to today when omitted or null', async () => {
+  const a = await store.createApplication(db, { company: 'NoDate Co', role: 'Dev' });
+  assert.ok(a.applied_date);
+  const b = await store.createApplication(db, { company: 'NullDate Co', role: 'Dev', applied_date: null });
+  assert.ok(b.applied_date);
+  const today = new Date().toISOString().slice(0, 10);
+  assert.equal(new Date(b.applied_date).toISOString().slice(0, 10), today);
+});
+
+test('update with null applied_date leaves it unchanged', async () => {
+  const app = await store.createApplication(db, { company: 'KeepDate Co', role: 'Dev', applied_date: '2026-11-01' });
+  const updated = await store.updateApplication(db, app.id, { applied_date: null, notes: 'still there' });
+  assert.equal(new Date(updated.applied_date).toISOString().slice(0, 10), '2026-11-01');
+});
