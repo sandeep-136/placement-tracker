@@ -8,7 +8,7 @@ Track internship and job applications end to end: pipeline stages, deadlines, no
 
 Demo mode note: the free deploy uses embedded in-memory Postgres, so demo data is fictional and resets whenever the service redeploys or restarts. Setting `DATABASE_URL` switches the same code to a durable hosted Postgres.
 
-![Live API](docs/screenshot.png)
+![Live app](docs/screenshot.png)
 
 ## Stack
 
