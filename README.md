@@ -2,6 +2,12 @@
 
 Track internship and job applications end to end: pipeline stages, deadlines, notes and a live stats dashboard. Built as a series of daily milestones.
 
+## Live
+
+**https://placement-tracker-ofa8.onrender.com** (M1: API only - try `/api/applications`, `/api/stats`, `/api/health`)
+
+![Live API](docs/screenshot.png)
+
 ## Stack
 
 - Node.js + Express REST API
