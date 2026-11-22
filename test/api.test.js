@@ -106,3 +106,12 @@ test('unknown routes 404 as JSON', async () => {
   const data = await res.json();
   assert.match(data.error, /Unknown route/);
 });
+
+test('root serves the pipeline UI', async () => {
+  const res = await fetch(`${base}/`);
+  assert.equal(res.status, 200);
+  assert.match(res.headers.get('content-type'), /text\/html/);
+  const html = await res.text();
+  assert.match(html, /Placement Tracker/);
+  assert.match(html, /app\.js/);
+});

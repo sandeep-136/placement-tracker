@@ -4,7 +4,9 @@ Track internship and job applications end to end: pipeline stages, deadlines, no
 
 ## Live
 
-**https://placement-tracker-ofa8.onrender.com** (M1: API only - try `/api/applications`, `/api/stats`, `/api/health`)
+**https://placement-tracker-ofa8.onrender.com**
+
+Demo mode note: the free deploy uses embedded in-memory Postgres, so demo data is fictional and resets whenever the service redeploys or restarts. Setting `DATABASE_URL` switches the same code to a durable hosted Postgres.
 
 ![Live API](docs/screenshot.png)
 
@@ -50,8 +52,8 @@ Demo mode seeds fictional companies only (Northwind Systems, BrightStack, Acme L
 
 ## Roadmap
 
-- [x] M1 - schema, store, REST API, stats, tests (this milestone)
-- [ ] M2 - pipeline UI (kanban by stage, search, add/edit forms)
+- [x] M1 - schema, store, REST API, stats, tests
+- [x] M2 - pipeline UI (kanban board, drag and drop, search, add/edit modal, stats bar)
 - [ ] M3 - deadline reminders and richer analytics
 - [ ] M4 - polish: hosted Postgres, auth, performance
 

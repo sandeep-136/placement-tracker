@@ -8,6 +8,7 @@ const { seed } = require('./scripts/seed');
 function createApp(db) {
   const app = express();
   app.use(express.json({ limit: '100kb' }));
+  app.use(express.static(require('path').join(__dirname, 'public')));
 
   const handle = (fn) => async (req, res) => {
     try {
